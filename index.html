@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text" placeholder="0">
+       <div>
+        <button class="operator_btn">AC</button>
+        <button class="operator_btn">DEL</button>
+        <button class="operator_btn">%</button>
+        <button class="operator_btn">/</button>
+    </div>
+       <div>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="operator_btn">*</button>
+    </div>
+       <div>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="operator_btn" >-</button>
+    </div>
+       <div>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="operator_btn" >+</button>
+    </div>
+       <div>
+        <button>00</button>
+        <button>0</button>
+        <button>.</button>
+        <button class="equal_btn">=</button>
+    </div>
+    </div>
+
+
+
+
+    <script>
+        let string = ""
+        let buttons = document.getElementsByTagName('button')
+        Array.from(buttons).forEach((a)=>{
+        a.addEventListener('click', (e)=>{
+            if(e.target.innerHTML == '='){
+                string = eval(string)
+                document.querySelector('input').value = string
+            }
+            else if(e.target.innerHTML == 'AC'){
+                string = "";
+                document.querySelector('input').value = string
+
+            }
+            else if(e.target.innerHTML == 'DEL'){
+                string = string.substring(0, string.length-1)
+                document.querySelector('input').value = string
+
+            }
+           else{
+            string = string + e.target.innerHTML
+            document.querySelector('input').value=string
+        }
+        })
+    })
+    </script>
+</body>
+</html>
